@@ -65,7 +65,6 @@ def query():
                 "rows": get_all_rows(max_points, 357518080233232),            
                 "type": "table"        
             }],
-
             '17dh0cf43jg77j': [{
                 "columns":[
                     {"text": "Date", "type": "time"},
@@ -80,7 +79,6 @@ def query():
                 ],
                 "rows": get_all_rows(max_points, 357518080249493),
                 "type": "table"
-
             }],
             '17dh0cf43jg77l': [{
                 "columns":[
@@ -96,7 +94,6 @@ def query():
                 ],
                 "rows": get_all_rows(max_points, 357518080231574),
                 "type": "table"
-
             }],
             '17dh0cf43jg783': [{
                 "columns":[
@@ -112,7 +109,6 @@ def query():
                 ],
                 "rows": get_all_rows(max_points, 357518080249428),
                 "type": "table"
-
             }],
             '17dh0cf43jg781': [{
                 "columns":[
@@ -128,7 +124,6 @@ def query():
                 ],
                 "rows": get_all_rows(max_points, 357518080249352),
                 "type": "table"
-
             }],
             '17dh0cf43jg6n4': [{
                 "columns":[
@@ -144,7 +139,6 @@ def query():
                 ],
                 "rows": get_all_rows(max_points, 357518080231251),
                 "type": "table"
-
             }],
             '17dh0cf43jg7ka': [{
                 "columns":[
