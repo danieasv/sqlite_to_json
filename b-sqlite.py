@@ -17,21 +17,10 @@ def convert_to_time_unixepoch(timestamp):
 def get_all_rows(max_points, sysid):
     #conn = sqlite3.connect("all.db") 
     conn = sqlite3.connect("aq.db")
-    sql = "select received_time, board_rel_hum, lon, lat, device_id from messages where sysid = "+str(sysid)
+    sql = "select received_time, opctemp, board_rel_hum, lon*180/3.1415926, lat*180/3.1415926, device_id, opcpma, opcpmb, opcpmc from messages where sysid = "+str(sysid)
     result = conn.execute(sql).fetchmany(max_points)
     conn.close()
     return result
-
-
-def create_data_points(start, end, max_points):
-    start = convert_to_time_unixepoch(start)
-    end = convert_to_time_unixepoch(end)
-    conn = sqlite3.connect("../aq.db") 
-    sql = "select board_rel_hum, received_time*1000 from messages where received_time > ? and received_time < ?"
-    result = conn.execute(sql, (start, end)).fetchmany(max_points)
-    conn.close()
-    return result
-
 
 @app.hook('after_request')
 def enable_cors():
@@ -49,7 +38,7 @@ def index():
 
 @app.post('/search')
 def search():
-    return HTTPResponse(body=dumps(['17dh0cf43jg77n', '17dh0cf43jg77j']),
+    return HTTPResponse(body=dumps(['17dh0cf43jg77n', '17dh0cf43jg77j', '17dh0cf43jg77l', '17dh0cf43jg783', '17dh0cf43jg781', '17dh0cf43jg6n4', '17dh0cf43jg7ka']),
                         headers={'Content-Type': 'application/json'})
 
 
@@ -60,35 +49,118 @@ def query():
     max_points = request_json["maxDataPoints"]
     if request.json['targets'][0]['type'] == 'table':
         series = request.json['targets'][0]['target']
-        bodies  = {'17dh0cf43jg77n': [{
-			"columns":[
-			    {"text": "Date", "type": "time"},
-                            {"text": "Humidity", "type": "number"},
-			    {"text": "Longitude", "type": "number"},
-			    {"text": "Latitude", "type": "number"},
-			    {"text": "Device ID", "type": "number"}
-		  	 ],
-                 "rows": get_all_rows(max_points, 357518080233232),            
-        	 "type": "table"        
-		 }],
-		 '17dh0cf43jg77j': [{
-			"columns":[
-			    {"text": "Date", "type": "time"},
-                            {"text": "Humidity", "type": "number"},
-                            {"text": "Longitude", "type": "number"},
-                            {"text": "Latitude", "type": "number"},
-                            {"text": "Device ID", "type": "number"}
-                           ],
-                 "rows": get_all_rows(max_points, 357518080249493),
-                 "type": "table"
-                }]}
-#    else:
-#        start, end = request_json['range']['from'], request_json['range']['to']
-#        for target in request.json['targets']:
-#            name = target['target']
-#            datapoints = create_data_points(start, end, max_points)
-#            body.append({'target': name, 'datapoints': datapoints})
+        bodies  = {
+            '17dh0cf43jg77n': [{
+                "columns":[
+                    {"text": "Date", "type": "time"},
+                    {"text": "Temperature", "type": "number"},
+                    {"text": "Humidity", "type": "number"},
+                    {"text": "Longitude", "type": "number"},
+                    {"text": "Latitude", "type": "number"},
+                    {"text": "Device ID", "type": "number"},
+                    {"text": "PM 1.0", "type": "number"},
+                    {"text": "PM 2.5", "type": "number"},
+                    {"text": "PM 10", "type": "number"}
+                ],
+                "rows": get_all_rows(max_points, 357518080233232),            
+                "type": "table"        
+            }],
 
+            '17dh0cf43jg77j': [{
+                "columns":[
+                    {"text": "Date", "type": "time"},
+                    {"text": "Temperature", "type": "number"},
+                    {"text": "Humidity", "type": "number"},
+                    {"text": "Longitude", "type": "number"},
+                    {"text": "Latitude", "type": "number"},
+                    {"text": "Device ID", "type": "number"},
+                    {"text": "PM 1.0", "type": "number"},
+                    {"text": "PM 2.5", "type": "number"},
+                    {"text": "PM 10", "type": "number"}
+                ],
+                "rows": get_all_rows(max_points, 357518080249493),
+                "type": "table"
+
+            }],
+            '17dh0cf43jg77l': [{
+                "columns":[
+                    {"text": "Date", "type": "time"},
+                    {"text": "Temperature", "type": "number"},
+                    {"text": "Humidity", "type": "number"},
+                    {"text": "Longitude", "type": "number"},
+                    {"text": "Latitude", "type": "number"},
+                    {"text": "Device ID", "type": "number"},
+                    {"text": "PM 1.0", "type": "number"},
+                    {"text": "PM 2.5", "type": "number"},
+                    {"text": "PM 10", "type": "number"}
+                ],
+                "rows": get_all_rows(max_points, 357518080231574),
+                "type": "table"
+
+            }],
+            '17dh0cf43jg783': [{
+                "columns":[
+                    {"text": "Date", "type": "time"},
+                    {"text": "Temperature", "type": "number"},
+                    {"text": "Humidity", "type": "number"},
+                    {"text": "Longitude", "type": "number"},
+                    {"text": "Latitude", "type": "number"},
+                    {"text": "Device ID", "type": "number"},
+                    {"text": "PM 1.0", "type": "number"},
+                    {"text": "PM 2.5", "type": "number"},
+                    {"text": "PM 10", "type": "number"}
+                ],
+                "rows": get_all_rows(max_points, 357518080249428),
+                "type": "table"
+
+            }],
+            '17dh0cf43jg781': [{
+                "columns":[
+                    {"text": "Date", "type": "time"},
+                    {"text": "Temperature", "type": "number"},
+                    {"text": "Humidity", "type": "number"},
+                    {"text": "Longitude", "type": "number"},
+                    {"text": "Latitude", "type": "number"},
+                    {"text": "Device ID", "type": "number"},
+                    {"text": "PM 1.0", "type": "number"},
+                    {"text": "PM 2.5", "type": "number"},
+                    {"text": "PM 10", "type": "number"}
+                ],
+                "rows": get_all_rows(max_points, 357518080249352),
+                "type": "table"
+
+            }],
+            '17dh0cf43jg6n4': [{
+                "columns":[
+                    {"text": "Date", "type": "time"},
+                    {"text": "Temperature", "type": "number"},
+                    {"text": "Humidity", "type": "number"},
+                    {"text": "Longitude", "type": "number"},
+                    {"text": "Latitude", "type": "number"},
+                    {"text": "Device ID", "type": "number"},
+                    {"text": "PM 1.0", "type": "number"},
+                    {"text": "PM 2.5", "type": "number"},
+                    {"text": "PM 10", "type": "number"}
+                ],
+                "rows": get_all_rows(max_points, 357518080231251),
+                "type": "table"
+
+            }],
+            '17dh0cf43jg7ka': [{
+                "columns":[
+                    {"text": "Date", "type": "time"},
+                    {"text": "Temperature", "type": "number"},
+                    {"text": "Humidity", "type": "number"},
+                    {"text": "Longitude", "type": "number"},
+                    {"text": "Latitude", "type": "number"},
+                    {"text": "Device ID", "type": "number"},
+                    {"text": "PM 1.0", "type": "number"},
+                    {"text": "PM 2.5", "type": "number"},
+                    {"text": "PM 10", "type": "number"}
+                ],
+                "rows": get_all_rows(max_points, 357518080231095),
+                "type": "table"
+        }]}
     body = dumps(bodies[series])
     return HTTPResponse(body=body,
                         headers={'Content-Type': 'application/json'})
