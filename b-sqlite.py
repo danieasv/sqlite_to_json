@@ -57,7 +57,6 @@ def query():
                     {"text": "Humidity", "type": "number"},
                     {"text": "Longitude", "type": "number"},
                     {"text": "Latitude", "type": "number"},
-                    {"text": "Device ID", "type": "number"},
                     {"text": "PM 1.0", "type": "number"},
                     {"text": "PM 2.5", "type": "number"},
                     {"text": "PM 10", "type": "number"}
@@ -72,7 +71,6 @@ def query():
                     {"text": "Humidity", "type": "number"},
                     {"text": "Longitude", "type": "number"},
                     {"text": "Latitude", "type": "number"},
-                    {"text": "Device ID", "type": "number"},
                     {"text": "PM 1.0", "type": "number"},
                     {"text": "PM 2.5", "type": "number"},
                     {"text": "PM 10", "type": "number"}
@@ -87,7 +85,6 @@ def query():
                     {"text": "Humidity", "type": "number"},
                     {"text": "Longitude", "type": "number"},
                     {"text": "Latitude", "type": "number"},
-                    {"text": "Device ID", "type": "number"},
                     {"text": "PM 1.0", "type": "number"},
                     {"text": "PM 2.5", "type": "number"},
                     {"text": "PM 10", "type": "number"}
@@ -102,7 +99,6 @@ def query():
                     {"text": "Humidity", "type": "number"},
                     {"text": "Longitude", "type": "number"},
                     {"text": "Latitude", "type": "number"},
-                    {"text": "Device ID", "type": "number"},
                     {"text": "PM 1.0", "type": "number"},
                     {"text": "PM 2.5", "type": "number"},
                     {"text": "PM 10", "type": "number"}
@@ -117,7 +113,6 @@ def query():
                     {"text": "Humidity", "type": "number"},
                     {"text": "Longitude", "type": "number"},
                     {"text": "Latitude", "type": "number"},
-                    {"text": "Device ID", "type": "number"},
                     {"text": "PM 1.0", "type": "number"},
                     {"text": "PM 2.5", "type": "number"},
                     {"text": "PM 10", "type": "number"}
@@ -132,7 +127,6 @@ def query():
                     {"text": "Humidity", "type": "number"},
                     {"text": "Longitude", "type": "number"},
                     {"text": "Latitude", "type": "number"},
-                    {"text": "Device ID", "type": "number"},
                     {"text": "PM 1.0", "type": "number"},
                     {"text": "PM 2.5", "type": "number"},
                     {"text": "PM 10", "type": "number"}
@@ -147,7 +141,6 @@ def query():
                     {"text": "Humidity", "type": "number"},
                     {"text": "Longitude", "type": "number"},
                     {"text": "Latitude", "type": "number"},
-                    {"text": "Device ID", "type": "number"},
                     {"text": "PM 1.0", "type": "number"},
                     {"text": "PM 2.5", "type": "number"},
                     {"text": "PM 10", "type": "number"}
