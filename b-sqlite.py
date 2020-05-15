@@ -17,7 +17,7 @@ def convert_to_time_unixepoch(timestamp):
 def get_all_rows(max_points, sysid):
     #conn = sqlite3.connect("all.db") 
     conn = sqlite3.connect("aq.db")
-    sql = "select received_time, boardtemp, board_rel_hum, lon*180/3.1415926, lat*180/3.1415926, device_id, opcpma, opcpmb, opcpmc from messages where sysid = "+str(sysid)
+    sql = "select received_time, boardtemp, board_rel_hum, lon*180/3.1415926, lat*180/3.1415926, opcpma,(opcbin_0+opcbin_1+opcbin_2+opcbin_3+opcbin_4+opcbin_5), opcpmc from messages where sysid = "+str(sysid)
     result = conn.execute(sql).fetchmany(max_points)
     conn.close()
     return result
